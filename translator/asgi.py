@@ -9,7 +9,7 @@ If you are running locally, just running `python3 app.py` should work.
 from fastapi import FastAPI, Request
 
 # Local import from main -> Only for docker deployment
-from main import app
+from translator.main import app
 from slack_bolt.adapter.fastapi import SlackRequestHandler
 
 api = FastAPI()
