@@ -8,3 +8,7 @@ class SlackConfig:
 
 class BotConfig:
     PORT = int(os.environ.get("PORT", 3000))
+
+
+class OpenAIConfig:
+    OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]

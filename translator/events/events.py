@@ -1,22 +1,39 @@
-from functions import extract_words
+from functions import extract_words, get_category, translate_message
 
 
 def on_mention(body, say, payload, event, client):
     if "thread_ts" not in event:  # Only reply to messages in threads
         return
 
-    # TODO: Add classifier to tell if we want to translate or extract
-    if words := _search_words(event, client):
-        _create_definition_message(words, say, event["thread_ts"])
-    else:
-        _no_words_found_message(say, event["thread_ts"])
+    category = get_category(event["text"])
+
+    print(category)
+
+    words = _search_words(event, client)
+
+    if category == "define":
+        if words:
+            _create_definition_message(words, say, event["thread_ts"])
+        else:
+            _no_words_found_message(say, event["thread_ts"])
+
+    elif category == "translate":
+        _send_translate_message(
+            event,
+            say,
+            client,
+        )
 
 
-def _search_words(event, client):
+def _get_thread_message(event, client):
     channel = event["channel"]
     thread_ts = event["thread_ts"]
     history = client.conversations_replies(channel=channel, ts=thread_ts)
-    message = history["messages"][0]
+    return history["messages"][0]
+
+
+def _search_words(event, client):
+    message = _get_thread_message(event, client)
 
     return extract_words(message["text"])
 
@@ -26,8 +43,12 @@ def _create_definition_message(words, say, thread):
 
     response = [
         {
-            "type": "section",
-            "text": {"type": "mrkdwn", "text": ":wave: *Hello millenials!*"},
+            "type": "header",
+            "text": {
+                "type": "plain_text",
+                "text": ":wave: Hello millenial!",
+                "emoji": True,
+            },
         },
         {"type": "divider"},
         {
@@ -55,3 +76,27 @@ def _no_words_found_message(say, thread):
         text="I can't find any Gen Z lingo in that message, maybe it's event too young for me...",
         thread_ts=thread,
     )
+
+
+def _send_translate_message(event, say, client):
+    translated = translate_message(_get_thread_message(event, client)["text"])
+
+    response = [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "This lingo too young for you? Here's a an _older_ translation:",
+            },
+        },
+        {"type": "divider"},
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": f"> {translated}",
+            },
+        },
+    ]
+
+    say(text="", blocks=response, thread_ts=event["thread_ts"], mrkdwn=True)

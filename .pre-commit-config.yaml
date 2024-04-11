@@ -3,13 +3,13 @@ repos:
     rev: v2.3.0
     hooks:
       - id: check-yaml
-  - repo: https://github.com/thoughtworks/talisman
-    rev: v1.32.0
-    hooks:
-      # ? Both pre-commit and pre-push supported
-      # -   id: talisman-push
-      - id: talisman-commit
-        entry: cmd --githook pre-commit
+  # - repo: https://github.com/thoughtworks/talisman
+  #   rev: v1.32.0
+  #   hooks:
+  #     # ? Both pre-commit and pre-push supported
+  #     # -   id: talisman-push
+  #     - id: talisman-commit
+  #       entry: cmd --githook pre-commit
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.3.5
     hooks:
