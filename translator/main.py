@@ -5,6 +5,7 @@ import dotenv
 dotenv.load_dotenv()
 
 from commands import add_word_command, remove_word_command, update_definition_command
+from events import on_mention
 from config import BotConfig, SlackConfig  # noqa: E402
 from slack_bolt import App  # noqa: E402
 
@@ -17,10 +18,8 @@ app = App(
     token=SlackConfig.SLACK_BOT_TOKEN,
 )
 
-
-@app.event("app_mention")
-def handle_app_mentions(body, say, payload, event):
-    say(f"Thanks for the mention <@{event['user']}>!")
+# Events
+app.event("app_mention")(on_mention)
 
 
 @app.event("message")

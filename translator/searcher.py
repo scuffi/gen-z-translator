@@ -7,6 +7,11 @@ class TextSearcher:
         self._searcher = TextSearch("ignore", "norm")
         self._database = WordDatabase()
 
+        self._add_definitions()
+
+    def _add_definitions(self):
+        self._searcher.add([doc["word"] for doc in self._database.get_words()])
+
     def search(self, text: str):
         return self._searcher.findall(text)
 

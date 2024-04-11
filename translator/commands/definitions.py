@@ -1,4 +1,4 @@
-from ..searcher import text_search
+from searcher import text_search
 
 
 def add_word_command(ack, command, respond):
