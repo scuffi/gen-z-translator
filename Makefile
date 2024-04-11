@@ -35,3 +35,7 @@ up:
 docker:
 	@echo "Running docker image..."
 	@docker-compose up --build
+
+ngrok:
+	@echo "Starting ngrok tunnel..."
+	@ngrok http 3000

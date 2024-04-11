@@ -1,13 +1,16 @@
 from logging import Logger
 
-from config import BotConfig, SlackConfig
-from searcher import TextSearcher
-from slack_bolt import App
+import dotenv
+
+dotenv.load_dotenv()
+
+from config import BotConfig, SlackConfig  # noqa: E402
+from searcher import TextSearcher  # noqa: E402
+from slack_bolt import App  # noqa: E402
 
 logger = Logger(__name__)
 
 logger.info("Starting bot...")
-
 
 app = App(
     signing_secret=SlackConfig.SLACK_BOT_SIGNING_SECRET,

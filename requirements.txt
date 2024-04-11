@@ -4,10 +4,28 @@
 #
 #    pip-compile --output-file=requirements.txt requirements.in
 #
+aiohttp==3.9.3
+    # via -r requirements.in
+aiosignal==1.3.1
+    # via
+    #   -r requirements.in
+    #   aiohttp
+annotated-types==0.6.0
+    # via
+    #   -r requirements.in
+    #   pydantic
 anyascii==0.3.2
     # via
     #   -r requirements.in
     #   textsearch
+anyio==4.3.0
+    # via
+    #   -r requirements.in
+    #   starlette
+attrs==23.2.0
+    # via
+    #   -r requirements.in
+    #   aiohttp
 build==1.2.1
     # via
     #   -r requirements.in
@@ -30,14 +48,31 @@ distlib==0.3.8
     # via
     #   -r requirements.in
     #   virtualenv
+fastapi==0.110.1
+    # via -r requirements.in
 filelock==3.13.3
     # via
     #   -r requirements.in
     #   virtualenv
+frozenlist==1.4.1
+    # via
+    #   -r requirements.in
+    #   aiohttp
+    #   aiosignal
 identify==2.5.35
     # via
     #   -r requirements.in
     #   pre-commit
+idna==3.7
+    # via
+    #   -r requirements.in
+    #   anyio
+    #   yarl
+multidict==6.0.5
+    # via
+    #   -r requirements.in
+    #   aiohttp
+    #   yarl
 nodeenv==1.8.0
     # via
     #   -r requirements.in
@@ -58,11 +93,21 @@ pyahocorasick==2.1.0
     # via
     #   -r requirements.in
     #   textsearch
+pydantic==2.7.0
+    # via
+    #   -r requirements.in
+    #   fastapi
+pydantic-core==2.18.1
+    # via
+    #   -r requirements.in
+    #   pydantic
 pyproject-hooks==1.0.0
     # via
     #   -r requirements.in
     #   build
     #   pip-tools
+python-dotenv==1.0.1
+    # via -r requirements.in
 pyyaml==6.0.1
     # via
     #   -r requirements.in
@@ -75,16 +120,34 @@ slack-sdk==3.27.1
     # via
     #   -r requirements.in
     #   slack-bolt
+sniffio==1.3.1
+    # via
+    #   -r requirements.in
+    #   anyio
+starlette==0.37.2
+    # via
+    #   -r requirements.in
+    #   fastapi
 textsearch==0.0.24
     # via -r requirements.in
 tinydb==4.8.0
     # via -r requirements.in
+typing-extensions==4.11.0
+    # via
+    #   -r requirements.in
+    #   fastapi
+    #   pydantic
+    #   pydantic-core
 virtualenv==20.25.1
     # via
     #   -r requirements.in
     #   pre-commit
 wheel==0.43.0
     # via pip-tools
+yarl==1.9.4
+    # via
+    #   -r requirements.in
+    #   aiohttp
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
