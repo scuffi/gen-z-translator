@@ -7,11 +7,35 @@ def on_mention(body, say, payload, event, client):
 
     # TODO: Add classifier to tell if we want to translate or extract
     channel = event["channel"]
-    original_thread_ts = event["thread_ts"]
-    history = client.conversations_replies(channel=channel, ts=original_thread_ts)
-    message = history["messages"][0]["text"]
-
-    words = extract_words(message)
-
     thread_ts = event["thread_ts"]
-    say(text=f"{words}", thread_ts=thread_ts)
+    history = client.conversations_replies(channel=channel, ts=thread_ts)
+    message = history["messages"][0]
+
+    words = extract_words(message["text"])
+
+    words_list = "".join(f"> *{word}* - _{definition}_\n" for word, definition in words)
+
+    response = [
+        {
+            "type": "section",
+            "text": {"type": "mrkdwn", "text": ":wave: *Hello millenials!*"},
+        },
+        {"type": "divider"},
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": f"<@{message['user']}> used some words you're not familiar with? I'll try define them for you:",
+            },
+        },
+        {"type": "section", "text": {"type": "mrkdwn", "text": f"{words_list}"}},
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "_I hope that helps in understanding the message. If not, I can try to translate into the real English._",
+            },
+        },
+    ]
+
+    say(text="", blocks=response, thread_ts=thread_ts, mrkdwn=True)
