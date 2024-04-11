@@ -9,7 +9,7 @@ services:
     volumes:
       - ./translator:/app
     env_file:
-      - .env
+      - stack.env
 
   ngrok:
     image: ngrok/ngrok
