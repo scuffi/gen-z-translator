@@ -24,3 +24,6 @@ class TextSearcher:
                 ),
             )
         )
+
+
+text_search = TextSearcher()
