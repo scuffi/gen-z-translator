@@ -1,0 +1,12 @@
+# Project Details
+
+[project]
+name = "python-template"
+version = "0.0.1"
+description = "Base template for Python projects"
+requires-python = ">=3.10"
+authors = [
+    {name = "Your Name", email = "email@example.com"},
+]
+readme = "README.md"
+license = {file = "LICENSE"}
