@@ -86,7 +86,7 @@ def _send_translate_message(event, say, client):
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": "This lingo too young for you? Here's a an _older_ translation:",
+                "text": "This lingo too young for you? Here's a an _aged_ translation:",
             },
         },
         {"type": "divider"},
