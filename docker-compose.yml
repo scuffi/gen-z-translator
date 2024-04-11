@@ -10,3 +10,11 @@ services:
       - ./translator:/app
     env_file:
       - .env
+
+  ngrok:
+    image: ngrok/ngrok
+    depends_on:
+      - translator
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    command: http 127.0.0.1:3000

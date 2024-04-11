@@ -20,11 +20,7 @@ app = App(
 
 # Events
 app.event("app_mention")(on_mention)
-
-
-@app.event("message")
-def handle_message_events(body, say, payload, event):
-    say(f"Thanks for the message <@{event['user']}>!")
+# TODO: Add option for checking every message
 
 
 # Commands
