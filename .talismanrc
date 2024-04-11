@@ -1,0 +1,9 @@
+fileignoreconfig:
+- filename: .env.example
+  checksum: fffa5f2e2273e4b36e9e95ff235cc1967d6a45e735d9c96c8a3f43e2ee91f90c
+
+# checksums for files in the translator directory
+- filename: translator/app.py
+  checksum: 87a4ac72b2116dadfd8b2cd3aba798556597f6915f774ba71b434b0b8f0273b3
+- filename: translator/config.py
+  checksum: 4267deda93157bf1fc9930ab937276f29bb081b26debfcab56431427023c6a59

@@ -1,0 +1,10 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: weekly # Change this to daily for more frequent updates
+  groups:
+    python-packages:
+      patterns:
+        - "*"
