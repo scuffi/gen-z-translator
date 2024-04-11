@@ -1,6 +1,6 @@
 fileignoreconfig:
 - filename: .env.example
-  checksum: fffa5f2e2273e4b36e9e95ff235cc1967d6a45e735d9c96c8a3f43e2ee91f90c
+  checksum: 12852e9a11d5567ba0699aea6336d894a81c7915ea2743cf24aa02ba267f15ac
 
 # checksums for files in the translator directory
 - filename: translator/app.py

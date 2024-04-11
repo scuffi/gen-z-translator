@@ -7,13 +7,16 @@ class WordDatabase:
         self.db = TinyDB("words.json")
 
     def add_word(self, word: str, definition: str):
-        self.db.insert({"word": word, definition: definition})
+        self.db.insert({"word": word, "definition": definition})
 
     def remove_word(self, word: str):
         self.db.remove(Query().word == word)
 
     def update_definition(self, word: str, definition: str):
         self.db.update({"definition": definition}, Query().word == word)
+
+    def get_word(self, word: str):
+        return self.db.get(Query().word == word)
 
     def get_words(self):
         return self.db.all()
