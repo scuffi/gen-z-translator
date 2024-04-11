@@ -4,6 +4,10 @@
 #
 #    pip-compile --output-file=requirements.txt requirements.in
 #
+anyascii==0.3.2
+    # via
+    #   -r requirements.in
+    #   textsearch
 build==1.2.1
     # via
     #   -r requirements.in
@@ -50,6 +54,10 @@ platformdirs==4.2.0
     #   virtualenv
 pre-commit==3.7.0
     # via -r requirements.in
+pyahocorasick==2.1.0
+    # via
+    #   -r requirements.in
+    #   textsearch
 pyproject-hooks==1.0.0
     # via
     #   -r requirements.in
@@ -60,6 +68,16 @@ pyyaml==6.0.1
     #   -r requirements.in
     #   pre-commit
 ruff==0.3.5
+    # via -r requirements.in
+slack-bolt==1.18.1
+    # via -r requirements.in
+slack-sdk==3.27.1
+    # via
+    #   -r requirements.in
+    #   slack-bolt
+textsearch==0.0.24
+    # via -r requirements.in
+tinydb==4.8.0
     # via -r requirements.in
 virtualenv==20.25.1
     # via

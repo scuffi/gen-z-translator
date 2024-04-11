@@ -1,10 +1,12 @@
 version: '3'
 services:
-  example:
+  translator:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "3000:3000"
     volumes:
-      - /project:/app
+      - ./translator:/app
+    env_file:
+      - .env

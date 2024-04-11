@@ -1,3 +1,4 @@
+anyascii==0.3.2
 build==1.2.1
 bump2version==1.0.1
 bumpversion==0.6.0
@@ -11,7 +12,12 @@ packaging==24.0
 pip-tools==7.4.1
 platformdirs==4.2.0
 pre-commit==3.7.0
+pyahocorasick==2.1.0
 pyproject_hooks==1.0.0
 PyYAML==6.0.1
 ruff==0.3.5
+slack-bolt==1.18.1
+slack_sdk==3.27.1
+textsearch==0.0.24
+tinydb==4.8.0
 virtualenv==20.25.1
