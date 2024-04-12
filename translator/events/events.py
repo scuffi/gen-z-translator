@@ -9,10 +9,8 @@ def on_mention(body, say, payload, event, client):
 
     print(category)
 
-    words = _search_words(event, client)
-
     if category == "define":
-        if words:
+        if words := _search_words(event, client):
             _create_definition_message(words, say, event["thread_ts"])
         else:
             _no_words_found_message(say, event["thread_ts"])
