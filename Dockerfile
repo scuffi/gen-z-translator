@@ -1,6 +1,6 @@
 FROM tiangolo/uvicorn-gunicorn:python3.11
 WORKDIR /app/
-COPY translator /app/
+COPY /data/compose/28/translator /app/
 COPY requirements.txt /app/
 RUN pip install -U pip && pip install -r requirements.txt
 
