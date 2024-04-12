@@ -11,15 +11,15 @@ services:
     env_file:
       - stack.env
 
-  ngrok:
-    image: ngrok/ngrok
-    depends_on:
-      - translator
-    env_file:
-      - stack.env
-    command: http 127.0.0.1:3000
-    stdin_open: true
-    tty: true
+  # ngrok:
+  #   image: ngrok/ngrok
+  #   depends_on:
+  #     - translator
+  #   env_file:
+  #     - stack.env
+  #   command: http 127.0.0.1:3000
+  #   stdin_open: true
+  #   tty: true
 
 volumes:
   translator:
