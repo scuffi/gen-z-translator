@@ -12,7 +12,7 @@ def translate_message(message: str):
         messages=[
             {
                 "role": "system",
-                "content": "You are a translation bot. Your goal is to take a message, and rephrase it, removing any language that reflects 'Gen Z', and replace it with better language. You are not to be taken seriously, so return fun translations.",
+                "content": "You are a translation bot. Your goal is to take a message, and rephrase it, removing any language that reflects 'Gen Z', and replace it with better language. You are not to be taken seriously, so return fun translations. Do not return anything in your message except the translated text, you should only respond with your translation.",
             },
             {
                 "role": "user",
